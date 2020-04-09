@@ -1,0 +1,267 @@
+/* override bootstrap */
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  box-shadow: 0 0 8px rgba(57, 145, 39);
+  border-color: rgb(1, 78, 1);
+}
+
+@font-face {
+  font-family: 'angoliaregular';
+  src: url('fonts/angolia-webfont.woff2') format('woff2'),
+      url('fonts/angolia-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.header {
+  padding-top: 20px;
+  height: 180px;
+  background: #f8f9fa;
+}
+
+h1 {
+  font-family: angoliaregular;
+  font-size: 5em;
+}
+
+.header a {
+  border-right:1px solid #5cb85c;
+  color: #1c701c;
+}
+
+.header a:last-child {
+  border-right: none;
+}
+
+.header a:hover {
+  background-color: #5cb85c;
+  color: white;
+}
+
+.header a.active {
+  background-color: #5cb85c;
+  color: white;
+}
+
+.intro-slider {
+  width: 100%;
+  margin-top: 100px;
+  height: 500px;
+  background-image: url(img/slide1.jpg);
+  background-size: cover;
+  /*background-attachment: fixed;*/
+  border: none;
+}
+
+.intro-text1 {
+  padding-top: 200px;
+  padding-left: 50px;
+}
+
+.intro-text1 h1 {
+  color: red;
+}
+
+.intro-text1 p {
+  color: red;
+}
+
+.end-slider {
+  width: 100%;
+  height: 400px;
+  background-image: url(img/slide2.jpg);
+  background-size: cover;
+  border: none;
+}
+
+.end-text1 h1 {
+  color: red;
+}
+
+.end-text1 p {
+  color: red;
+}
+
+/* for food card */
+.food-name {
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+/* for food card */
+.price-tag {
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 56px;
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.price-text {
+  line-height: 56px;
+  font-size: 1.2em;
+  vertical-align: middle;
+  padding-right: 5px;
+}
+
+.ingredient-text {
+  padding-left: 0;
+  color: green;
+  font-weight: bold;
+}
+
+/* doesn't work
+.ingredient-text :hover {
+  background-color: green;
+  text-decoration: white;
+  color: white;
+}
+*/
+
+/* for order */
+.order-list {
+  background-color: #f8f9fa;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.order-list td.align-right {
+  text-align: right;
+}
+
+/* for row */
+.correct-margin {
+  margin-top: 200px;
+  margin-bottom: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.full-width {
+  margin: 50px;
+}
+
+.add-to-cart {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+#payment {
+  display: block; /* should be none in real */
+}
+
+.site-footer {
+  background-color: black;
+  color: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+  /* Set the size of the div element that contains the map */
+  #map {
+  height: 200px;
+  width: 100%;  /* The width is the width of the web page */
+  }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .correct-margin {
+    margin: 0px;
+  }
+
+  .intro-slider {
+    background-image: url(img/slide1.jpg);
+  }
+
+  .site-footer {
+    align-content: center;
+    text-align: center;
+  }
+
+  #map {
+    height: 300px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .correct-margin {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .order-list {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  #map {
+    height: 300px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .correct-margin {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .order-list {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .correct-margin {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .order-list {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .intro-slider {
+    height: 600px;
+    background-image: url(img/slide1.jpg);
+  }
+
+  .correct-margin {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .order-list {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
