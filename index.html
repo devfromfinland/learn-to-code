@@ -8,6 +8,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
+    <!-- Google Matrial Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link ref="stylesheet" href="kitchen.css" type="text/css">
@@ -42,57 +44,93 @@
         font-style: normal;
       }
 
-      .header {
-        padding-top: 20px;
-        height: 180px;
-        background: #f8f9fa;
+      @font-face {
+        font-family: 'hungrychalk1';
+        src: url('fonts/hungrychalk-1-webfont.woff2') format('woff2'),
+            url('fonts/hungrychalk-1-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'hungrychalk2';
+        src: url('fonts/hungrychalk-2-webfont.woff2') format('woff2'),
+            url('fonts/hungrychalk-2-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'hungrychalk3';
+        src: url('fonts/hungrychalk-3-webfont.woff2') format('woff2'),
+            url('fonts/hungrychalk-3-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
       }
 
       h1 {
-        font-family: angoliaregular;
-        font-size: 5em;
+        font-family: hungrychalk1;
+        font-size: 3em;
       }
 
-      .header a {
+      .navbar-brand {
+        font-family: angoliaregular;
+        font-size: 4em;
+        width: 100%;
+      }
+
+      .navbar-nav {
+        margin-right: 0;
+        margin-left: auto;
+      }
+
+      .navbar-nav a {
         border-right:1px solid #5cb85c;
         color: #1c701c;
       }
 
-      .header a:last-child {
+      .navbar-nav a:last-child {
         border-right: none;
       }
 
-      .header a:hover {
+      .navbar-nav a:hover {
         background-color: #5cb85c;
         color: white;
       }
 
-      .header a.active {
+      .navbar-nav a.active {
         background-color: #5cb85c;
         color: white;
+      }
+
+      .main-color {
+        color: #1c701c;
       }
 
       .intro-slider {
         width: 100%;
-        margin-top: 100px;
         height: 500px;
         background-image: url(img/slide1.jpg);
         background-size: cover;
-        /*background-attachment: fixed;*/
+        background-attachment: fixed;
         border: none;
       }
 
       .intro-text1 {
         padding-top: 200px;
         padding-left: 50px;
+        background: rgba(0, 0, 0, 0.5);
+        text-align: center;
+        color: white;
       }
 
       .intro-text1 h1 {
-        color: red;
+        font-family: hungrychalk1;
       }
 
       .intro-text1 p {
-        color: red;
+        font-family: hungrychalk3;
+        font-size: 3em;
       }
 
       .end-slider {
@@ -103,12 +141,20 @@
         border: none;
       }
 
+      .end-text1 {
+        padding: 100px 0;
+        background: rgba(0, 0, 0, 0.5);
+        text-align: center;
+        color: white;
+      }
+
       .end-text1 h1 {
-        color: red;
+        font-family: hungrychalk1;
       }
 
       .end-text1 p {
-        color: red;
+        font-family: hungrychalk3;
+        font-size: 3em;
       }
 
       /* for food card */
@@ -142,8 +188,8 @@
         font-weight: bold;
       }
 
-      /* doesn't work
-      .ingredient-text :hover {
+      /*
+      .ingredient-text:hover {
         background-color: green;
         text-decoration: white;
         color: white;
@@ -180,7 +226,7 @@
       }
 
       #payment {
-        display: block; /* should be none in real */
+        display: none; /* should be none in action */
       }
 
       .site-footer {
@@ -205,7 +251,8 @@
         }
 
         .intro-slider {
-          background-image: url(img/slide1.jpg);
+          background-image: url(img/slide1.jpg); /* should be a smaller size */
+          height: 400px;
         }
 
         .site-footer {
@@ -216,6 +263,33 @@
         #map {
           height: 300px;
         }
+
+        .navbar-brand {
+          width: 200px;
+          font-size: 3em;
+        }
+
+        .navbar-nav a {
+          border-right: none;
+          text-align: center;
+        }
+
+        .intro-text1 {
+          padding-top: 120px;
+        }
+
+        .end-text1 {
+          padding: 70px 0;
+        }
+
+        .full-width {
+          margin: 20px;
+        }
+
+        .order-list {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
       }
 
       /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -225,11 +299,6 @@
           margin-right: auto;
           margin-top: 30px;
           margin-bottom: 30px;
-        }
-
-        .order-list {
-          padding-top: 20px;
-          padding-bottom: 20px;
         }
 
         #map {
@@ -285,18 +354,27 @@
   </head>
   
   <body>
-    <div class="header fixed-top">
-      <div class="text-center" id="logo"><h1>Kitchen Next Door</h1></div>
+    <nav class="navbar fixed-top navbar-expand-sm bg-light" id="top-navBar">
+      <div class="navbar-brand">
+        Kitchen Next Door
+      </div>
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <!--<span class="navbar-toggler-icon"></span>-->
+        <i class="material-icons main-color">menu</i>
+      </button>
 
-      <nav class="nav justify-content-center">
-        <a class="nav-item nav-link active" href="#">Home</a>
-        <a class="nav-item nav-link" href="#menu">Menu</a>
-        <a class="nav-item nav-link" href="#order">Order</a>
-        <a class="nav-item nav-link" href="#about">About</a>
-      </nav>
-    </div>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <div class="navbar-nav mr-auto">
+          <a class="nav-item nav-link active" href="#home" id="menu_item1">Home</a></li>
+          <a class="nav-item nav-link" href="#menu" id="menu_item2">Menu</a></li>
+          <a class="nav-item nav-link" href="#order" id="menu_item3">Order</a></li>
+          <a class="nav-item nav-link" href="#about" id="menu_item4">About</a></li>
+        </div>
+      </div>
+    </nav>
 
-    <div class="sites-contents">
+    <div class="sites-contents" id="home">
       <!-- Intro slider section -->
       <div class="card border-light bg-dark text-white" id="first-intro">
         <!-- need opacity and dark overlay background for img -->
@@ -306,11 +384,9 @@
         <div class="card-img-overlay intro-text1">
           <h1 class="card-title">Älä kokka, säästää aikaa. syö meidän kanssa!</h1>
           <p class="card-text">Here goes the contents if we want to have more description</p>
+          <p class="card-text">Here goes the contents if we want to have more description</p>
         </div>
       </div>
-
-      <!-- Space between sections -->
-      <div class="clearfix" style="height: 20px;"></div>
 
       <!-- Food menu section -->
       <div class="row full-width" id="menu">
@@ -473,9 +549,6 @@
         </div>
       </div>
 
-      <!-- Space between sections -->
-      <div class="clearfix" style="height: 20px;"></div>
-
       <!-- Order section -->
       <div class="order-list">
         <div class="clearfix container" id="order">
@@ -521,9 +594,6 @@
           <button type="button" class="btn btn-success float-right" onclick="nextToPayment()">Continue</button>
         </div>
       </div>
-
-      <!-- Space between sections -->
-      <div class="clearfix" style="height: 20px;"></div>
 
       <!-- Payment & delivery section -->
       <div class="clearfix container correct-margin" id="payment">
@@ -587,9 +657,6 @@
         </div>
       </div>
 
-      <!-- Space between sections -->
-      <div class="clearfix" style="height: 20px;"></div>
-
       <!-- Last slider section -->
       <div class="card border-light bg-dark text-white" id="last-intro">
         <!-- need opacity and dark overlay background for img -->
@@ -597,8 +664,8 @@
         <div class="end-slider"></div>
   
         <div class="card-img-overlay end-text1">
-          <h1 class="card-title">Älä kokka, säästää aikaa. syö meidän kanssa!</h1>
-          <p class="card-text">Here goes the contents if we want to have more description</p>
+          <h1>Älä kokka, säästää aikaa. syö meidän kanssa!</h1>
+          <p>Here goes the contents if we want to have more description</p>
         </div>
       </div>
     </div>
@@ -638,9 +705,12 @@
     <!--
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
-    <script src="./js/jquery-3.2.1.slim.min.js"></script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Custom JavaScript -->
     <script>
@@ -668,11 +738,46 @@
       }
 
       $(".nav-item").on("click", function(e){
-        // Remove class active form all li.nav-tiem
-        $("a.nav-item").removeClass("active");
-        // Add Class to current Element. 
-        $(this).addClass("active");
+        var scrollAnchor = $(this).attr("href");
+        var scrollPoint = $(scrollAnchor).offset().top - 170;
+
+        // scrollPoint is correct, but scroll animation doesn't work
+        $('body,html').animate({scrollTop: scrollPoint}, 500);
+
+        //return false;
       });
+
+      $('#test').on("click", function() {
+        var scrollPoint = $('#about').offset().top - 150;
+        $('body,html').animate({scrollTop: scrollPoint}, 500);
+      });
+
+      var selector1 = '#menu_item1';
+      var selector2 = '#menu_item2';
+      var selector3 = '#menu_item3';
+      var selector4 = '#menu_item4';
+
+      $(window).scroll(function() {
+        var windscroll = $(window).scrollTop();
+        var sec1 = $('#home').offset().top;
+        var sec2 = $('#menu').offset().top - 200;
+        var sec3 = $('#order').offset().top - 200;
+        var sec4 = $('#about').offset().top - 500;
+
+        if (windscroll < sec2) {
+          $("a.nav-item").removeClass("active");
+          $(selector1).addClass('active');
+        } else if (windscroll < sec3 && windscroll >= sec1) {
+          $("a.nav-item").removeClass("active");
+          $(selector2).addClass('active');
+        } else if (windscroll < sec4 && windscroll >= sec2) {
+          $("a.nav-item").removeClass("active");
+          $(selector3).addClass('active');
+        } else {
+          $("a.nav-item").removeClass("active");
+          $(selector4).addClass('active');
+        }
+      }).scroll();
 
       // Initialize and add the map
       function initMap() {
