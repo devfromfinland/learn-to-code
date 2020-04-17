@@ -73,10 +73,16 @@
         font-size: 3em;
       }
 
+      .navbar {
+        padding: 0 3rem;
+      }
+
       .navbar-brand {
         font-family: angoliaregular;
-        font-size: 4em;
+        font-size: 3em;
         width: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
       }
 
       .navbar-nav {
@@ -354,7 +360,7 @@
   </head>
   
   <body>
-    <nav class="navbar fixed-top navbar-expand-sm bg-light" id="top-navBar">
+    <nav class="navbar sticky-top navbar-expand-sm bg-light" id="top-navBar">
       <div class="navbar-brand">
         Kitchen Next Door
       </div>
@@ -739,18 +745,31 @@
 
       $(".nav-item").on("click", function(e){
         var scrollAnchor = $(this).attr("href");
-        var scrollPoint = $(scrollAnchor).offset().top - 170;
+        var scrollPoint = $(scrollAnchor).offset().top - 120;
 
         // scrollPoint is correct, but scroll animation doesn't work
         $('body,html').animate({scrollTop: scrollPoint}, 500);
 
+        /* hide the menu after click on small screen
+        var element = document.getElementById('navbarContent');
+        var toggler = document.getElementsByClassName('navbar-toggler');
+
+        setTimeout(() => {
+          element.classList.remove("show");
+          toggler.setAttribute("aria-expanded", "false");
+          toggler.classList.add("collapsed");  
+        }, 2000);
+        */
+        
         //return false;
       });
 
+      /*
       $('#test').on("click", function() {
-        var scrollPoint = $('#about').offset().top - 150;
+        var scrollPoint = $('#about').offset().top - 130;
         $('body,html').animate({scrollTop: scrollPoint}, 500);
       });
+      */
 
       var selector1 = '#menu_item1';
       var selector2 = '#menu_item2';
@@ -760,7 +779,7 @@
       $(window).scroll(function() {
         var windscroll = $(window).scrollTop();
         var sec1 = $('#home').offset().top;
-        var sec2 = $('#menu').offset().top - 200;
+        var sec2 = $('#menu').offset().top - 120;
         var sec3 = $('#order').offset().top - 200;
         var sec4 = $('#about').offset().top - 500;
 
